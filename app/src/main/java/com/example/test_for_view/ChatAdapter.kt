@@ -12,7 +12,8 @@ class ChatAdapter: RecyclerView.Adapter<ChatAdapter.ChatHolder>(), View.OnTouchL
     var chats = listOf<ChatPreview>()
     set(value) {
         field = value
-        notifyDataSetChanged() // это мы добавили чтобы при потыгивании вниз список обновился
+        notifyDataSetChanged() // это мы добавили чтобы при потягивании вниз список обновился
+
     }
 
     class ChatHolder(itemView: View): RecyclerView.ViewHolder(itemView) {
