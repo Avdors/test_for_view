@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">test_for_view</string>
+    <string name="chats">Чаты</string>
+</resources>
