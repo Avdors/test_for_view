@@ -6,13 +6,23 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
+import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 
 class ChatAdapter: RecyclerView.Adapter<ChatAdapter.ChatHolder>(), View.OnTouchListener {
     var chats = listOf<ChatPreview>()
     set(value) {
+       // field = value
+       // notifyDataSetChanged() // это мы добавили чтобы при потягивании вниз список обновился
+        // здесь используем DiffUtil, передаем старое новое значение
+        val callback = CommonCallbacklmpl(
+            oldItems = field,
+            newItems = value,
+            {oldItem, newItem -> oldItem.userid==newItem.userid}
+        )
         field = value
-        notifyDataSetChanged() // это мы добавили чтобы при потягивании вниз список обновился
+        val diffREsult = DiffUtil.calculateDiff(callback)
+        diffREsult.dispatchUpdatesTo(this)
 
     }
 
