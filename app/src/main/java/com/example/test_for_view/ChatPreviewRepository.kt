@@ -5,7 +5,7 @@ import androidx.appcompat.content.res.AppCompatResources
 import androidx.recyclerview.widget.DiffUtil
 
 class ChatPreviewRepository {
-    fun getChats(context: Context): List<ChatPreview> {
+    fun getChats(context: Context): List<Chat> {
         return buildList {
             val userPhoto = AppCompatResources.getDrawable(context, R.drawable.imt)
             var userName = "Alex Alex"
@@ -21,7 +21,9 @@ class ChatPreviewRepository {
                     userId = userId2
 
                 }
+                    add(VideoChat(0,"Yandex", 563))
                     add(ChatPreview(userId,userPhoto,userName, lastMessage))
+                    add(VideoChat(0, "Friends", 8))
 
             }
 
