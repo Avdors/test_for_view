@@ -25,6 +25,7 @@ class MainActivity : AppCompatActivity() {
         chatRecyclerView.layoutManager = layoutManager
         chatRecyclerView.addItemDecoration(ChatPreviewOffsetItemDecoration(bottomOffset = 16f.toInt(), topOffset = 16f.toInt())) //добавляем отступы между элементами
         chatRecyclerView.addItemDecoration(DividerItemDecoration(this, layoutManager.orientation)) // добавляем разделители между элементами
+        chatRecyclerView.itemAnimator = ChatAnimator() // чтобы новые элементы списка прилетали сверху
         chatAdapter.chats = chatPreviewRepository.getChats(this)
 
 
